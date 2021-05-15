@@ -4,5 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="vehicle_home_fragment_label">Vehicle Home</string>
     <string name="new_vehicle_label">Create new vehicle profile</string>
+    <string name="vehicle_number_edittext_hint">For eg. MH12AB1234</string>
+    <string name="vehicle_number">VEHICLE NUMBER</string>
 
 </resources>

@@ -6,5 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".VehicleHomeFragment">
 
+    <TextView
+        android:id="@+id/header_text"
+        android:text="@string/vehicle_number"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="@dimen/header_text_size"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/generic_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/vehicle_no_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_text"
+        android:layout_margin="@dimen/generic_margin"
+        android:hint="@string/vehicle_number_edittext_hint"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/next_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_500"
+        android:src="@drawable/arrow_right_32"
+        app:tint="@android:color/white"
+        android:layout_margin="@dimen/generic_margin"
+        app:fabSize="normal"
+        app:maxImageSize="@dimen/fab_icon_size"
+        android:layout_gravity="end|bottom"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
