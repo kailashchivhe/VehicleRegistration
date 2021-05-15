@@ -8,17 +8,17 @@
     <fragment
         android:id="@+id/VehicleHomeFragment"
         android:name="com.kai.vehicleregistration.VehicleHomeFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/vehicle_home_fragment_label"
         tools:layout="@layout/fragment_vehicle_home">
 
         <action
             android:id="@+id/action_VehicleHomeFragment_to_NewVehicleFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/NewVehicleFragment" />
     </fragment>
     <fragment
         android:id="@+id/NewVehicleFragment"
         android:name="com.kai.vehicleregistration.NewVehicleFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/new_vehicle_label"
         tools:layout="@layout/fragment_new_vehicle">
 
         <action
