@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Vehicle Registration</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="vehicle_home_fragment_label">Vehicle Home</string>
+    <string name="new_vehicle_label">Create new vehicle profile</string>
+
+</resources>
