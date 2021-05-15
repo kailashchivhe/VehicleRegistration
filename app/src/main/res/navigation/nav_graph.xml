@@ -13,6 +13,10 @@
 
         <action
             android:id="@+id/action_VehicleHomeFragment_to_NewVehicleFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:destination="@id/NewVehicleFragment" />
     </fragment>
     <fragment
@@ -23,6 +27,10 @@
 
         <action
             android:id="@+id/action_NewVehicleFragment_to_VehicleHomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:destination="@id/VehicleHomeFragment" />
     </fragment>
 </navigation>

@@ -6,5 +6,11 @@
     <string name="new_vehicle_label">Create new vehicle profile</string>
     <string name="vehicle_number_edittext_hint">For eg. MH12AB1234</string>
     <string name="vehicle_number">VEHICLE NUMBER</string>
+    <string name="please_add_vehicles">Please add vehicles.</string>
+    <string name="four_wheeler">Four-Wheeler</string>
+    <string name="two_wheeler">Two-Wheeler</string>
+    <string name="choose_vehicle_type">Choose Vehicle Type :</string>
+    <string name="create_new_profile">Create new vehicle profile</string>
+    <string name="vehicles">Vehicles</string>
 
 </resources>

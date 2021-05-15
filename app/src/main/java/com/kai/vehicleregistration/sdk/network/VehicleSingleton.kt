@@ -9,7 +9,7 @@ object VehicleSingleton
 {
     private const val mBaseURL = "https://test.turbocare.app/"
 
-    lateinit var mCurrentVehicleEnum: VehicleType
+    var mCurrentVehicleEnum: VehicleType = VehicleType.TWO_WHEELER
 
     private val mRetrofit: Retrofit = Retrofit.Builder()
         .baseUrl( mBaseURL )
@@ -18,10 +18,9 @@ object VehicleSingleton
 
     private val mVehicleServiceInterface = mRetrofit.create( VehicleServiceInterface::class.java )
 
-    fun getCompaniesByType( vehicleType: VehicleType, callback: Callback< MutableList<String> > )
+    fun getCompaniesByType( callback: Callback< MutableList<String> > )
     {
-        mCurrentVehicleEnum = vehicleType
-        mVehicleServiceInterface.getCompaniesByType( vehicleType.description ).enqueue( callback )
+        mVehicleServiceInterface.getCompaniesByType( mCurrentVehicleEnum.description ).enqueue( callback )
     }
 
     fun getVehiclesByCompany( brand: String, callback: Callback< MutableList<String> > )
