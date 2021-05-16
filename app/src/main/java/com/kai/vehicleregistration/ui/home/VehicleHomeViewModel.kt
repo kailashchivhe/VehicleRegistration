@@ -1,6 +1,10 @@
 package com.kai.vehicleregistration.ui.home
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.kai.vehicleregistration.model.VehicleEntity
+import com.kai.vehicleregistration.sdk.database.VehicleDatabaseSingleton
+import kotlinx.coroutines.*
 
 class VehicleHomeViewModel : ViewModel()
 {
@@ -9,8 +13,21 @@ class VehicleHomeViewModel : ViewModel()
         const val TAG = "VehicleHomeViewModel"
     }
 
-    fun getVehicles()
+    private var mVehicleList = MutableLiveData<MutableList<VehicleEntity>>()
+
+    fun getVehicles(): MutableLiveData<MutableList<VehicleEntity>>
     {
-        //TODO: access database
+        runBlocking {
+            launch( Dispatchers.Default )
+            {
+                getVehicleList()
+            }
+        }
+        return mVehicleList
+    }
+
+    suspend fun getVehicleList() = withContext( Dispatchers.Default )
+    {
+        mVehicleList.postValue( VehicleDatabaseSingleton.getAllVehicles() )
     }
 }

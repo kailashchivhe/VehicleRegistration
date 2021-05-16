@@ -8,12 +8,20 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.kai.vehicleregistration.R
+import com.kai.vehicleregistration.model.VehicleEntity
+import com.kai.vehicleregistration.ui.adapter.VehicleHomeAdapter
 import kotlinx.android.synthetic.main.fragment_vehicle_home.*
 
 class VehicleHomeFragment : Fragment()
 {
     private lateinit var mVehicleHomeViewModel: VehicleHomeViewModel
+
+    private lateinit var mRecyclerView: RecyclerView
+
+    private lateinit var mAdapter: VehicleHomeAdapter
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
     {
@@ -24,10 +32,47 @@ class VehicleHomeFragment : Fragment()
     override fun onViewCreated( view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
+        mVehicleHomeViewModel = ViewModelProvider( this ).get( VehicleHomeViewModel::class.java )
         add_fab.setOnClickListener {
             findNavController().navigate( R.id.action_VehicleHomeFragment_to_NewVehicleFragment )
         }
         initActionBar()
+        initRecyclerView()
+        loadData()
+    }
+
+    private fun loadData()
+    {
+        activity?.let { fragmentActivity ->
+            mVehicleHomeViewModel.getVehicles().observe(fragmentActivity, {
+                if( it.size > 0 )
+                {
+                    progressBar.visibility = View.GONE
+                    recycler_view.visibility = View.VISIBLE
+                    mAdapter.submitList(it)
+                }
+                else
+                {
+                    progressBar.visibility = View.GONE
+                    status_text_view.visibility = View.VISIBLE
+                }
+            })
+        }
+    }
+
+    private fun initRecyclerView()
+    {
+        mRecyclerView = recycler_view
+        mRecyclerView.layoutManager = LinearLayoutManager( activity )
+        mAdapter = VehicleHomeAdapter( mutableListOf()){
+            onItemClicked( it )
+        }
+        mRecyclerView.adapter = mAdapter
+    }
+
+    private fun onItemClicked( it: VehicleEntity )
+    {
+        //TODO: Display Detail UI
     }
 
     fun initActionBar()
@@ -35,12 +80,5 @@ class VehicleHomeFragment : Fragment()
         (activity as AppCompatActivity).supportActionBar?.title = getString( R.string.vehicles )
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(false)
-    }
-
-    override fun onActivityCreated( savedInstanceState: Bundle? )
-    {
-        super.onActivityCreated(savedInstanceState)
-        mVehicleHomeViewModel = ViewModelProvider( this ).get( VehicleHomeViewModel::class.java )
-        mVehicleHomeViewModel.getVehicles()
     }
 }

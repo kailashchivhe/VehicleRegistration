@@ -16,7 +16,6 @@
         android:id="@+id/progressBar"
         android:layout_width="@dimen/progress_bar_size"
         android:layout_height="@dimen/progress_bar_size"
-        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,6 +29,7 @@
         android:fontFamily="sans-serif-medium"
         android:text="@string/please_add_vehicles"
         android:textColor="@color/black"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -44,7 +44,6 @@
         app:tint="@android:color/white"
         android:layout_margin="@dimen/generic_margin_2"
         app:fabSize="normal"
-        app:maxImageSize="@dimen/fab_icon_size"
         android:layout_gravity="end|bottom"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
