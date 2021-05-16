@@ -48,7 +48,7 @@
         android:id="@+id/VehicleCompanyFragment"
         android:name="com.kai.vehicleregistration.ui.register.VehicleCompanyFragment"
         android:label="@string/select_make"
-        tools:layout="@layout/fragment_generic_list">
+        tools:layout="@layout/fragment_vehicle_generic_list">
 
         <action
             android:id="@+id/action_VehicleCompanyFragment_to_VehicleListFragment"
@@ -64,7 +64,7 @@
         android:id="@+id/VehicleListFragment"
         android:name="com.kai.vehicleregistration.ui.register.VehicleListFragment"
         android:label="@string/select_model"
-        tools:layout="@layout/fragment_generic_list">
+        tools:layout="@layout/fragment_vehicle_generic_list">
 
         <action
             android:id="@+id/action_VehicleListFragment_to_VehicleFuelFragment"
@@ -80,7 +80,7 @@
         android:id="@+id/VehicleFuelFragment"
         android:name="com.kai.vehicleregistration.ui.register.VehicleFuelFragment"
         android:label="@string/select_fuel"
-        tools:layout="@layout/fragment_generic_list">
+        tools:layout="@layout/fragment_vehicle_generic_list">
 
         <action
             android:id="@+id/action_VehicleFuelFragment_to_VehicleTransmissionFragment"
@@ -96,7 +96,7 @@
         android:id="@+id/VehicleTransmissionFragment"
         android:name="com.kai.vehicleregistration.ui.register.VehicleTransmissionFragment"
         android:label="@string/select_transmission"
-        tools:layout="@layout/fragment_generic_list">
+        tools:layout="@layout/fragment_vehicle_generic_list">
 
         <action
             android:id="@+id/action_VehicleTransmissionFragment_to_VehicleDetailsFragment"

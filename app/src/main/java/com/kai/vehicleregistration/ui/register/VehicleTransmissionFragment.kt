@@ -15,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kai.vehicleregistration.R
 import com.kai.vehicleregistration.model.TransmissionType
 import com.kai.vehicleregistration.ui.adapter.GenericVehicleAdapter
-import kotlinx.android.synthetic.main.fragment_generic_list.progressBar
-import kotlinx.android.synthetic.main.fragment_generic_list.recycler_view
+import kotlinx.android.synthetic.main.fragment_vehicle_generic_list.*
 
 class VehicleTransmissionFragment: Fragment()
 {
@@ -29,7 +28,7 @@ class VehicleTransmissionFragment: Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
     {
         // Inflate the layout for this fragment
-        return inflater.inflate( R.layout.fragment_generic_list, container, false )
+        return inflater.inflate( R.layout.fragment_vehicle_generic_list, container, false )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle? )
