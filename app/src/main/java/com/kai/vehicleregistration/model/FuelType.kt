@@ -7,5 +7,21 @@ enum class FuelType( val description: String )
     CNG("CNG" ),
     PETROL_CNG( "Petrol + CNG" ),
     ELECTRIC("Electric" ),
-    HYBRID( "Hybrid" ),
+    HYBRID( "Hybrid" );
+
+    companion object
+    {
+        fun getFuelTypeFromDescription( fuelTypeDescription: String ): FuelType
+        {
+            var result = FuelType.PETROL
+            for( fuelType in FuelType.values() )
+            {
+                if( fuelType.description == fuelTypeDescription )
+                {
+                    result = fuelType
+                }
+            }
+            return result
+        }
+    }
 }

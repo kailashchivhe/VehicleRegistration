@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kai.vehicleregistration.model.FuelType
 import com.kai.vehicleregistration.model.TransmissionType
-import com.kai.vehicleregistration.model.VehicleEntity
 import com.kai.vehicleregistration.sdk.database.VehicleDatabaseSingleton
 import com.kai.vehicleregistration.sdk.network.VehicleSingleton
 import retrofit2.Call
@@ -57,15 +56,24 @@ class NewVehicleViewModel: ViewModel()
 
     fun getFuelList(): MutableList<String>
     {
-        val fuelType = mutableListOf<String>()
-        fuelType.add( FuelType.PETROL.description )
-        fuelType.add( FuelType.DIESEL.description )
-        fuelType.add( FuelType.CNG.description )
-        fuelType.add( FuelType.PETROL_CNG.description )
-        fuelType.add( FuelType.ELECTRIC.description )
-        fuelType.add( FuelType.HYBRID.description )
-        return fuelType
+        val fuelTypeList = mutableListOf<String>()
+        fuelTypeList.add( FuelType.PETROL.description )
+        fuelTypeList.add( FuelType.DIESEL.description )
+        fuelTypeList.add( FuelType.CNG.description )
+        fuelTypeList.add( FuelType.PETROL_CNG.description )
+        fuelTypeList.add( FuelType.ELECTRIC.description )
+        fuelTypeList.add( FuelType.HYBRID.description )
+        return fuelTypeList
     }
+
+    fun getTransmissionList(): MutableList<String>
+    {
+        val transmissionTypeList = mutableListOf<String>()
+        transmissionTypeList.add( TransmissionType.AUTOMATIC.description )
+        transmissionTypeList.add( TransmissionType.MANUAL.description  )
+        return transmissionTypeList
+    }
+
     fun setVehicleNumber( vehicleNumber: String )
     {
         VehicleDatabaseSingleton.setVehicleNumber( vehicleNumber )

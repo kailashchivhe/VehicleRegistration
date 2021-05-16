@@ -12,11 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kai.vehicleregistration.R
-import com.kai.vehicleregistration.model.FuelType
+import com.kai.vehicleregistration.model.TransmissionType
 import com.kai.vehicleregistration.ui.adapter.GenericVehicleAdapter
 import kotlinx.android.synthetic.main.fragment_generic_list.*
 
-class VehicleFuelFragment : Fragment()
+class VehicleTransmissionFragment: Fragment()
 {
     private lateinit var mNewVehicleViewModel: NewVehicleViewModel
 
@@ -61,18 +61,18 @@ class VehicleFuelFragment : Fragment()
         mRecyclerView.adapter = mAdapter
         progressBar.visibility = View.GONE
         recycler_view.visibility = View.VISIBLE
-        mAdapter.submitList( mNewVehicleViewModel.getFuelList() )
+        mAdapter.submitList( mNewVehicleViewModel.getTransmissionList() )
     }
 
-    private fun onItemClicked( fuelType: String )
+    private fun onItemClicked( transmissionType: String )
     {
-        mNewVehicleViewModel.setVehicleFuelType( FuelType.getFuelTypeFromDescription( fuelType ) )
-        findNavController().navigate( R.id.action_VehicleFuelFragment_to_VehicleTransmissionFragment )
+        mNewVehicleViewModel.setVehicleTransmission( TransmissionType.getTransmissionTypeFromDescription( transmissionType ) )
+//        findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
     }
 
     fun initActionBar()
     {
-        (activity as AppCompatActivity).supportActionBar?.title = getString( R.string.select_fuel )
+        (activity as AppCompatActivity).supportActionBar?.title = getString( R.string.select_transmission )
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
     }
