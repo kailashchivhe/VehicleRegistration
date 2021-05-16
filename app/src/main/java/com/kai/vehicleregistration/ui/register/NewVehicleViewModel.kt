@@ -4,11 +4,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kai.vehicleregistration.model.FuelType
 import com.kai.vehicleregistration.model.TransmissionType
+import com.kai.vehicleregistration.model.VehicleEntity
 import com.kai.vehicleregistration.sdk.database.VehicleDatabaseSingleton
 import com.kai.vehicleregistration.sdk.network.VehicleSingleton
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 import java.util.*
 
 class NewVehicleViewModel: ViewModel()
@@ -20,6 +26,7 @@ class NewVehicleViewModel: ViewModel()
 
     private var mCompanyList = MutableLiveData<MutableList<String>>()
     private var mVehicleList = MutableLiveData<MutableList<String>>()
+    private var mInsertLiveData = MutableLiveData< Boolean >()
 
     fun getCompanies(): MutableLiveData<MutableList<String>>
     {
@@ -97,5 +104,30 @@ class NewVehicleViewModel: ViewModel()
     fun setVehicleTransmission( transmissionType: TransmissionType )
     {
         VehicleDatabaseSingleton.setVehicleTransmission( transmissionType )
+    }
+
+    fun insertVehicles(): MutableLiveData<Boolean>
+    {
+        runBlocking {
+            launch( Dispatchers.Default )
+            {
+                val vehicleEntity = VehicleDatabaseSingleton.getVehicleEntity()
+                insertVehicles( vehicleEntity )
+            }
+        }
+        return mInsertLiveData
+    }
+
+    private suspend fun insertVehicles(vehicleEntity: VehicleEntity ) = withContext( Dispatchers.Default )
+    {
+        try
+        {
+            VehicleDatabaseSingleton.insertVehicle(vehicleEntity)
+        }
+        catch ( exception: Exception )
+        {
+            mInsertLiveData.postValue( false )
+        }
+        mInsertLiveData.postValue( true )
     }
 }

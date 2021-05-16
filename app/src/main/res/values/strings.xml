@@ -17,5 +17,6 @@
     <string name="select_fuel">Select Fuel Type</string>
     <string name="select_transmission">Select Transmission</string>
     <string name="failure">Failure</string>
+    <string name="success">Success</string>
 
 </resources>

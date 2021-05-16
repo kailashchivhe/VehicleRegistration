@@ -22,6 +22,11 @@ object VehicleDatabaseSingleton
         mDatabase.vehicleDao().insert( vehicleEntity )
     }
 
+    fun insertVehicle( vehicleEntity: VehicleEntity )
+    {
+        mDatabase.vehicleDao().insert( vehicleEntity )
+    }
+
     fun getAllVehicles(): MutableList<VehicleEntity>
     {
         val vehicleList = mutableListOf<VehicleEntity>()

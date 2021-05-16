@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kai.vehicleregistration.R
 import com.kai.vehicleregistration.model.TransmissionType
 import com.kai.vehicleregistration.ui.adapter.GenericVehicleAdapter
-import kotlinx.android.synthetic.main.fragment_generic_list.*
+import kotlinx.android.synthetic.main.fragment_generic_list.progressBar
+import kotlinx.android.synthetic.main.fragment_generic_list.recycler_view
 
 class VehicleTransmissionFragment: Fragment()
 {
@@ -67,7 +69,19 @@ class VehicleTransmissionFragment: Fragment()
     private fun onItemClicked( transmissionType: String )
     {
         mNewVehicleViewModel.setVehicleTransmission( TransmissionType.getTransmissionTypeFromDescription( transmissionType ) )
-//        findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
+        activity?.let { fragmentActivity ->
+            mNewVehicleViewModel.insertVehicles().observe(fragmentActivity, {
+                if( it )
+                {
+                    Toast.makeText( context, getString(R.string.success), Toast.LENGTH_LONG ).show()
+//                    findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
+                }
+                else
+                {
+                    Toast.makeText( context, getString(R.string.failure ), Toast.LENGTH_LONG ).show()
+                }
+            })
+        }
     }
 
     fun initActionBar()
