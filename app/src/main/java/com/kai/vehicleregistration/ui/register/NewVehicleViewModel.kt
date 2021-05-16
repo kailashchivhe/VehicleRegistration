@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import com.kai.vehicleregistration.model.FuelType
 import com.kai.vehicleregistration.model.TransmissionType
 import com.kai.vehicleregistration.model.VehicleEntity
+import com.kai.vehicleregistration.sdk.database.VehicleDatabaseSingleton
 import com.kai.vehicleregistration.sdk.network.VehicleSingleton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class NewVehicleViewModel: ViewModel()
 {
@@ -16,8 +18,6 @@ class NewVehicleViewModel: ViewModel()
     {
         const val TAG = "NewVehicleViewModel"
     }
-
-    private var mVehicleEntity = VehicleEntity( "", "", "", FuelType.PETROL, TransmissionType.AUTOMATIC )
 
     private var mCompanyList = MutableLiveData<MutableList<String>>()
     private var mVehicleList = MutableLiveData<MutableList<String>>()
@@ -38,9 +38,10 @@ class NewVehicleViewModel: ViewModel()
         return mCompanyList
     }
 
-    fun getVehicles( companyName: String ): MutableLiveData<MutableList<String>>
+    fun getVehicles(): MutableLiveData<MutableList<String>>
     {
-        VehicleSingleton.getVehiclesByCompany( companyName, object: Callback<MutableList<String>>{
+        VehicleSingleton.getVehiclesByCompany( VehicleDatabaseSingleton.getVehicleEntity().mCompany.toLowerCase(
+            Locale.ROOT ), object: Callback<MutableList<String>>{
             override fun onResponse( call: Call<MutableList<String>>, response: Response<MutableList<String>> )
             {
                 mVehicleList.postValue( response.body() )
@@ -56,26 +57,26 @@ class NewVehicleViewModel: ViewModel()
 
     fun setVehicleNumber( vehicleNumber: String )
     {
-        mVehicleEntity.mVehicleNumber = vehicleNumber
+        VehicleDatabaseSingleton.setVehicleNumber( vehicleNumber )
     }
 
     fun setVehicleCompany( companyName: String )
     {
-        mVehicleEntity.mCompany = companyName
+        VehicleDatabaseSingleton.setVehicleCompany( companyName )
     }
 
     fun setVehicleModel( vehicleModel : String )
     {
-        mVehicleEntity.mModel = vehicleModel
+        VehicleDatabaseSingleton.setVehicleModel( vehicleModel )
     }
 
     fun setVehicleFuelType( fuelType: FuelType )
     {
-        mVehicleEntity.mFuelType = fuelType
+        VehicleDatabaseSingleton.setVehicleFuelType( fuelType )
     }
 
     fun setVehicleTransmission( transmissionType: TransmissionType )
     {
-        mVehicleEntity.mTransmission = transmissionType
+        VehicleDatabaseSingleton.setVehicleTransmission( transmissionType )
     }
 }

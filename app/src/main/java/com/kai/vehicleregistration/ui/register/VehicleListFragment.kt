@@ -1,13 +1,13 @@
 package com.kai.vehicleregistration.ui.register
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +16,8 @@ import com.kai.vehicleregistration.R
 import com.kai.vehicleregistration.ui.adapter.GenericVehicleAdapter
 import kotlinx.android.synthetic.main.fragment_generic_list.*
 
-class VehicleCompanyFragment(): Fragment()
+
+class VehicleListFragment : Fragment()
 {
     private lateinit var mNewVehicleViewModel: NewVehicleViewModel
 
@@ -55,7 +56,7 @@ class VehicleCompanyFragment(): Fragment()
     private fun loadData()
     {
         activity?.let { fragmentActivity ->
-            mNewVehicleViewModel.getCompanies().observe( fragmentActivity, {
+            mNewVehicleViewModel.getVehicles().observe( fragmentActivity, {
                 if (it.size > 0)
                 {
                     progressBar.visibility = View.GONE
@@ -84,12 +85,12 @@ class VehicleCompanyFragment(): Fragment()
     private fun onItemClicked( company: String )
     {
         mNewVehicleViewModel.setVehicleCompany( company )
-        findNavController().navigate( R.id.action_VehicleCompanyFragment_to_VehicleListFragment )
+//        findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
     }
 
     fun initActionBar()
     {
-        (activity as AppCompatActivity).supportActionBar?.title = getString( R.string.select_make )
+        (activity as AppCompatActivity).supportActionBar?.title = getString( R.string.select_model )
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
     }

@@ -25,6 +25,6 @@ object VehicleSingleton
 
     fun getVehiclesByCompany( brand: String, callback: Callback< MutableList<String> > )
     {
-        mVehicleServiceInterface.getVehiclesByCompany( mCurrentVehicleEnum.name, brand ).enqueue( callback )
+        mVehicleServiceInterface.getVehiclesByCompany( mCurrentVehicleEnum.description, brand ).enqueue( callback )
     }
 }
