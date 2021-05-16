@@ -14,6 +14,7 @@
     <string name="vehicles">Vehicles</string>
     <string name="select_make">Select Make</string>
     <string name="select_model">Select Model</string>
+    <string name="select_fuel">Select Fuel Type</string>
     <string name="failure">Failure</string>
 
 </resources>

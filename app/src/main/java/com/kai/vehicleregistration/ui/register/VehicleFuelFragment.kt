@@ -1,23 +1,22 @@
 package com.kai.vehicleregistration.ui.register
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kai.vehicleregistration.R
+import com.kai.vehicleregistration.model.FuelType
 import com.kai.vehicleregistration.ui.adapter.GenericVehicleAdapter
 import kotlinx.android.synthetic.main.fragment_generic_list.*
 
-
-class VehicleListFragment : Fragment()
+class VehicleFuelFragment : Fragment()
 {
     private lateinit var mNewVehicleViewModel: NewVehicleViewModel
 
@@ -25,20 +24,19 @@ class VehicleListFragment : Fragment()
 
     private lateinit var mAdapter: GenericVehicleAdapter
 
-    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
     {
         // Inflate the layout for this fragment
         return inflater.inflate( R.layout.fragment_generic_list, container, false )
     }
 
-    override fun onViewCreated( view: View, savedInstanceState: Bundle? )
+    override fun onViewCreated(view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
         mNewVehicleViewModel = ViewModelProvider(this).get( NewVehicleViewModel::class.java )
         initActionBar()
         setHasOptionsMenu( true )
         initRecyclerView()
-        loadData()
     }
 
     override fun onOptionsItemSelected( item: MenuItem): Boolean
@@ -53,25 +51,6 @@ class VehicleListFragment : Fragment()
         return super.onOptionsItemSelected(item)
     }
 
-    private fun loadData()
-    {
-        activity?.let { fragmentActivity ->
-            mNewVehicleViewModel.getVehicles().observe( fragmentActivity, {
-                if (it.size > 0)
-                {
-                    progressBar.visibility = View.GONE
-                    recycler_view.visibility = View.VISIBLE
-                    mAdapter.submitList(it)
-                }
-                else
-                {
-                    progressBar.visibility = View.GONE
-                    Toast.makeText( context, getString( R.string.failure ), Toast.LENGTH_LONG ).show()
-                }
-            })
-        }
-    }
-
     private fun initRecyclerView()
     {
         mRecyclerView = recycler_view
@@ -80,17 +59,20 @@ class VehicleListFragment : Fragment()
             onItemClicked(it)
         }
         mRecyclerView.adapter = mAdapter
+        progressBar.visibility = View.GONE
+        recycler_view.visibility = View.VISIBLE
+        mAdapter.submitList( mNewVehicleViewModel.getFuelList() )
     }
 
-    private fun onItemClicked( model: String )
+    private fun onItemClicked( fuelType: String )
     {
-        mNewVehicleViewModel.setVehicleModel( model )
-        findNavController().navigate( R.id.action_VehicleListFragment_to_VehicleFuelFragment )
+        mNewVehicleViewModel.setVehicleFuelType( FuelType.valueOf( fuelType ) )
+//        findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
     }
 
     fun initActionBar()
     {
-        (activity as AppCompatActivity).supportActionBar?.title = getString( R.string.select_model )
+        (activity as AppCompatActivity).supportActionBar?.title = getString( R.string.select_fuel )
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
     }

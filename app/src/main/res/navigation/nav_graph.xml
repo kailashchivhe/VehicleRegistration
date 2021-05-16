@@ -57,6 +57,22 @@
         android:label="@string/select_model"
         tools:layout="@layout/fragment_generic_list">
 
+        <action
+            android:id="@+id/action_VehicleListFragment_to_VehicleFuelFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/VehicleFuelFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/VehicleFuelFragment"
+        android:name="com.kai.vehicleregistration.ui.register.VehicleFuelFragment"
+        android:label="@string/select_fuel"
+        tools:layout="@layout/fragment_generic_list">
+
     </fragment>
 
 </navigation>

@@ -55,6 +55,17 @@ class NewVehicleViewModel: ViewModel()
         return mVehicleList
     }
 
+    fun getFuelList(): MutableList<String>
+    {
+        val fuelType = mutableListOf<String>()
+        fuelType.add( FuelType.PETROL.description )
+        fuelType.add( FuelType.DIESEL.description )
+        fuelType.add( FuelType.CNG.description )
+        fuelType.add( FuelType.PETROL_CNG.description )
+        fuelType.add( FuelType.ELECTRIC.description )
+        fuelType.add( FuelType.HYBRID.description )
+        return fuelType
+    }
     fun setVehicleNumber( vehicleNumber: String )
     {
         VehicleDatabaseSingleton.setVehicleNumber( vehicleNumber )
