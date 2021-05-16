@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.kai.vehicleregistration.R
 import com.kai.vehicleregistration.model.VehicleType
 import com.kai.vehicleregistration.sdk.network.VehicleSingleton
-import kotlinx.android.synthetic.main.fragment_new_vehicle.*
+import kotlinx.android.synthetic.main.fragment_vehicle_register.*
 
 
 class VehicleRegisterFragment : Fragment()
@@ -22,7 +22,7 @@ class VehicleRegisterFragment : Fragment()
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
     {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_vehicle, container, false)
+        return inflater.inflate(R.layout.fragment_vehicle_register, container, false)
     }
 
     override fun onViewCreated( view: View, savedInstanceState: Bundle? )

@@ -33,7 +33,7 @@
         android:id="@+id/VehicleRegisterFragment"
         android:name="com.kai.vehicleregistration.ui.register.VehicleRegisterFragment"
         android:label="@string/new_vehicle_label"
-        tools:layout="@layout/fragment_new_vehicle">
+        tools:layout="@layout/fragment_vehicle_register">
 
         <action
             android:id="@+id/action_VehicleRegisterFragment_to_VehicleCompanyFragment"
