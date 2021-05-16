@@ -72,7 +72,8 @@ class VehicleHomeFragment : Fragment()
 
     private fun onItemClicked( it: VehicleEntity )
     {
-        //TODO: Display Detail UI
+        mVehicleHomeViewModel.setVehicleEntity( it )
+        findNavController().navigate( R.id.action_VehicleHomeFragment_to_VehicleDetailsFragment )
     }
 
     fun initActionBar()

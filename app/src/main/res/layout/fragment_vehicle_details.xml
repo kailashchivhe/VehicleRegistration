@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:weightSum="2"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/purple_500"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/banner_title_size"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/generic_margin_2"
+            android:layout_alignParentStart="true"
+            android:layout_above="@id/subTitle"/>
+
+        <TextView
+            android:id="@+id/subTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            android:layout_marginBottom="@dimen/generic_margin_2"
+            android:layout_marginStart="@dimen/generic_margin_2"
+            android:layout_alignParentBottom="true"/>
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/makeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/make"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/makeSubTitle"
+            app:layout_constraintRight_toRightOf="@id/makeSubTitle"
+            android:layout_marginTop="@dimen/generic_margin_2" />
+
+        <TextView
+            android:id="@+id/makeSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toBottomOf="@id/makeTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/details_subtitle_margin_top"
+            android:layout_marginStart="@dimen/generic_large_margin" />
+
+        <TextView
+            android:id="@+id/modelTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/model"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/modelSubTitle"
+            app:layout_constraintRight_toRightOf="@id/modelSubTitle"
+            android:layout_marginTop="@dimen/generic_margin_2" />
+
+        <TextView
+            android:id="@+id/modelSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toBottomOf="@id/modelTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/details_subtitle_margin_top"
+            android:layout_marginEnd="@dimen/generic_large_margin" />
+
+
+        <TextView
+            android:id="@+id/fuelTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fuel_type"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toBottomOf="@id/makeSubTitle"
+            app:layout_constraintLeft_toLeftOf="@id/fuelSubTitle"
+            app:layout_constraintRight_toRightOf="@id/fuelSubTitle"
+            android:layout_marginTop="@dimen/generic_margin_2" />
+
+        <TextView
+            android:id="@+id/fuelSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toBottomOf="@id/fuelTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/details_subtitle_margin_top"
+            android:layout_marginStart="@dimen/generic_large_margin" />
+
+
+        <TextView
+            android:id="@+id/transmissionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transmission"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toBottomOf="@id/modelSubTitle"
+            app:layout_constraintLeft_toLeftOf="@id/transmissionSubTitle"
+            app:layout_constraintRight_toRightOf="@id/transmissionSubTitle"
+            android:layout_marginTop="@dimen/generic_margin_2" />
+
+        <TextView
+            android:id="@+id/transmissionSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/vehicle_item_subtitle_size"
+            app:layout_constraintTop_toBottomOf="@id/transmissionTitle"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/details_subtitle_margin_top"
+            android:layout_marginEnd="@dimen/generic_large_margin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

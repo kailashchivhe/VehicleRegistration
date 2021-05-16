@@ -18,5 +18,10 @@
     <string name="select_transmission">Select Transmission</string>
     <string name="failure">Failure</string>
     <string name="success">Success</string>
+    <string name="model">MODEL</string>
+    <string name="make">MAKE</string>
+    <string name="fuel_type">FUEL TYPE</string>
+    <string name="transmission">TRANMISSION</string>
+    <string name="vehicle_details">Vehicle Details</string>
 
 </resources>

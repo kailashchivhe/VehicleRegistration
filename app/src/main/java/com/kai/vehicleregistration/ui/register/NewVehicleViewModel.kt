@@ -81,6 +81,11 @@ class NewVehicleViewModel: ViewModel()
         return transmissionTypeList
     }
 
+    fun getVehicleDetails(): VehicleEntity
+    {
+        return VehicleDatabaseSingleton.getVehicleEntity()
+    }
+
     fun setVehicleNumber( vehicleNumber: String )
     {
         VehicleDatabaseSingleton.setVehicleNumber( vehicleNumber )

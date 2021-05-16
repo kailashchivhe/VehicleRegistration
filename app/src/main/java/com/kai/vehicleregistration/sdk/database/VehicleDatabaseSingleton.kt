@@ -63,4 +63,10 @@ object VehicleDatabaseSingleton
     {
         return mVehicleEntity
     }
+
+    fun setVehicleEntity( vehicleEntity: VehicleEntity )
+    {
+        mVehicleEntity = vehicleEntity
+    }
+
 }

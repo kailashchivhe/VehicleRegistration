@@ -18,6 +18,15 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:destination="@id/NewVehicleFragment" />
+
+        <action
+            android:id="@+id/action_VehicleHomeFragment_to_VehicleDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/VehicleDetailsFragment" />
+
     </fragment>
 
     <fragment
@@ -88,6 +97,31 @@
         android:name="com.kai.vehicleregistration.ui.register.VehicleTransmissionFragment"
         android:label="@string/select_transmission"
         tools:layout="@layout/fragment_generic_list">
+
+        <action
+            android:id="@+id/action_VehicleTransmissionFragment_to_VehicleDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:destination="@id/VehicleDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/VehicleDetailsFragment"
+        android:name="com.kai.vehicleregistration.ui.register.VehicleDetailsFragment"
+        android:label="@string/vehicle_details"
+        tools:layout="@layout/fragment_vehicle_details">
+
+        <action
+            android:id="@+id/action_VehicleDetailsFragment_to_VehicleHomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/VehicleHomeFragment"
+            app:popUpToInclusive="false"/>
 
     </fragment>
 

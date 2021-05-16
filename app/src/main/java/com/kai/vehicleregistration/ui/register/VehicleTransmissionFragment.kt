@@ -74,7 +74,7 @@ class VehicleTransmissionFragment: Fragment()
                 if( it )
                 {
                     Toast.makeText( context, getString(R.string.success), Toast.LENGTH_LONG ).show()
-//                    findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
+                    findNavController().navigate( R.id.action_VehicleTransmissionFragment_to_VehicleDetailsFragment )
                 }
                 else
                 {

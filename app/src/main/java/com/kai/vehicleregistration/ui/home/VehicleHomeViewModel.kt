@@ -30,4 +30,9 @@ class VehicleHomeViewModel : ViewModel()
     {
         mVehicleList.postValue( VehicleDatabaseSingleton.getAllVehicles() )
     }
+
+    fun setVehicleEntity( vehicleEntity: VehicleEntity )
+    {
+        VehicleDatabaseSingleton.setVehicleEntity( vehicleEntity )
+    }
 }
