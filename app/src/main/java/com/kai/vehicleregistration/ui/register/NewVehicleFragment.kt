@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.kai.vehicleregistration.R
 import com.kai.vehicleregistration.model.VehicleType
@@ -14,7 +15,9 @@ import com.kai.vehicleregistration.sdk.network.VehicleSingleton
 import kotlinx.android.synthetic.main.fragment_new_vehicle.*
 
 
-class NewVehicleFragment : Fragment() {
+class NewVehicleFragment : Fragment()
+{
+    private lateinit var mNewVehicleViewModel: NewVehicleViewModel
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
     {
@@ -25,6 +28,7 @@ class NewVehicleFragment : Fragment() {
     override fun onViewCreated( view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
+        mNewVehicleViewModel = ViewModelProvider(this).get( NewVehicleViewModel::class.java )
         initActionBar()
         setHasOptionsMenu( true )
         initRadioButton()
@@ -53,7 +57,8 @@ class NewVehicleFragment : Fragment() {
     private fun onNextClick()
     {
         next_fab.setOnClickListener {
-            findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleHomeFragment )
+            mNewVehicleViewModel.setVehicleNumber( vehicle_no_edit_text.text.toString() )
+            findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
         }
     }
 

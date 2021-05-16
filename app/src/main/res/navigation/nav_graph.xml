@@ -19,6 +19,7 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:destination="@id/NewVehicleFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/NewVehicleFragment"
         android:name="com.kai.vehicleregistration.ui.register.NewVehicleFragment"
@@ -26,11 +27,20 @@
         tools:layout="@layout/fragment_new_vehicle">
 
         <action
-            android:id="@+id/action_NewVehicleFragment_to_VehicleHomeFragment"
+            android:id="@+id/action_NewVehicleFragment_to_VehicleCompanyFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:destination="@id/VehicleHomeFragment" />
+            app:destination="@id/VehicleCompanyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/VehicleCompanyFragment"
+        android:name="com.kai.vehicleregistration.ui.register.VehicleCompanyFragment"
+        android:label="@string/select_make"
+        tools:layout="@layout/fragment_generic_list">
+
+
     </fragment>
 </navigation>

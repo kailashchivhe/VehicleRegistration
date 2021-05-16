@@ -12,5 +12,7 @@
     <string name="choose_vehicle_type">Choose Vehicle Type :</string>
     <string name="create_new_profile">Create new vehicle profile</string>
     <string name="vehicles">Vehicles</string>
+    <string name="select_make">Select Make</string>
+    <string name="failure">Failure</string>
 
 </resources>
