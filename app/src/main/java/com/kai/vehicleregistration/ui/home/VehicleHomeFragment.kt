@@ -34,7 +34,7 @@ class VehicleHomeFragment : Fragment()
         super.onViewCreated(view, savedInstanceState)
         mVehicleHomeViewModel = ViewModelProvider( this ).get( VehicleHomeViewModel::class.java )
         add_fab.setOnClickListener {
-            findNavController().navigate( R.id.action_VehicleHomeFragment_to_NewVehicleFragment )
+            findNavController().navigate( R.id.action_VehicleHomeFragment_to_VehicleRegisterFragment )
         }
         initActionBar()
         initRecyclerView()

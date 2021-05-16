@@ -15,7 +15,7 @@ import com.kai.vehicleregistration.sdk.network.VehicleSingleton
 import kotlinx.android.synthetic.main.fragment_new_vehicle.*
 
 
-class NewVehicleFragment : Fragment()
+class VehicleRegisterFragment : Fragment()
 {
     private lateinit var mNewVehicleViewModel: NewVehicleViewModel
 
@@ -58,7 +58,7 @@ class NewVehicleFragment : Fragment()
     {
         next_fab.setOnClickListener {
             mNewVehicleViewModel.setVehicleNumber( vehicle_no_edit_text.text.toString() )
-            findNavController().navigate( R.id.action_NewVehicleFragment_to_VehicleCompanyFragment )
+            findNavController().navigate( R.id.action_VehicleRegisterFragment_to_VehicleCompanyFragment )
         }
     }
 

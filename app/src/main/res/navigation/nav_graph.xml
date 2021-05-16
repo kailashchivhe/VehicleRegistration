@@ -12,12 +12,12 @@
         tools:layout="@layout/fragment_vehicle_home">
 
         <action
-            android:id="@+id/action_VehicleHomeFragment_to_NewVehicleFragment"
+            android:id="@+id/action_VehicleHomeFragment_to_VehicleRegisterFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:destination="@id/NewVehicleFragment" />
+            app:destination="@id/VehicleRegisterFragment" />
 
         <action
             android:id="@+id/action_VehicleHomeFragment_to_VehicleDetailsFragment"
@@ -30,13 +30,13 @@
     </fragment>
 
     <fragment
-        android:id="@+id/NewVehicleFragment"
-        android:name="com.kai.vehicleregistration.ui.register.NewVehicleFragment"
+        android:id="@+id/VehicleRegisterFragment"
+        android:name="com.kai.vehicleregistration.ui.register.VehicleRegisterFragment"
         android:label="@string/new_vehicle_label"
         tools:layout="@layout/fragment_new_vehicle">
 
         <action
-            android:id="@+id/action_NewVehicleFragment_to_VehicleCompanyFragment"
+            android:id="@+id/action_VehicleRegisterFragment_to_VehicleCompanyFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
