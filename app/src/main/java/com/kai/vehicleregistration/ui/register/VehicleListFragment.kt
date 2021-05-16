@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_generic_list.*
 
 class VehicleListFragment : Fragment()
 {
-    private lateinit var mNewVehicleViewModel: NewVehicleViewModel
+    private lateinit var mVehicleRegisterViewModel: VehicleRegisterViewModel
 
     private lateinit var mRecyclerView: RecyclerView
 
@@ -34,7 +34,7 @@ class VehicleListFragment : Fragment()
     override fun onViewCreated( view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
-        mNewVehicleViewModel = ViewModelProvider(this).get( NewVehicleViewModel::class.java )
+        mVehicleRegisterViewModel = ViewModelProvider(this).get( VehicleRegisterViewModel::class.java )
         initActionBar()
         setHasOptionsMenu( true )
         initRecyclerView()
@@ -56,7 +56,7 @@ class VehicleListFragment : Fragment()
     private fun loadData()
     {
         activity?.let { fragmentActivity ->
-            mNewVehicleViewModel.getVehicles().observe( fragmentActivity, {
+            mVehicleRegisterViewModel.getVehicles().observe( fragmentActivity, {
                 if (it.size > 0)
                 {
                     progressBar.visibility = View.GONE
@@ -84,7 +84,7 @@ class VehicleListFragment : Fragment()
 
     private fun onItemClicked( model: String )
     {
-        mNewVehicleViewModel.setVehicleModel( model )
+        mVehicleRegisterViewModel.setVehicleModel( model )
         findNavController().navigate( R.id.action_VehicleListFragment_to_VehicleFuelFragment )
     }
 

@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_generic_list.recycler_view
 
 class VehicleTransmissionFragment: Fragment()
 {
-    private lateinit var mNewVehicleViewModel: NewVehicleViewModel
+    private lateinit var mVehicleRegisterViewModel: VehicleRegisterViewModel
 
     private lateinit var mRecyclerView: RecyclerView
 
@@ -35,7 +35,7 @@ class VehicleTransmissionFragment: Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
-        mNewVehicleViewModel = ViewModelProvider(this).get( NewVehicleViewModel::class.java )
+        mVehicleRegisterViewModel = ViewModelProvider(this).get( VehicleRegisterViewModel::class.java )
         initActionBar()
         setHasOptionsMenu( true )
         initRecyclerView()
@@ -63,14 +63,14 @@ class VehicleTransmissionFragment: Fragment()
         mRecyclerView.adapter = mAdapter
         progressBar.visibility = View.GONE
         recycler_view.visibility = View.VISIBLE
-        mAdapter.submitList( mNewVehicleViewModel.getTransmissionList() )
+        mAdapter.submitList( mVehicleRegisterViewModel.getTransmissionList() )
     }
 
     private fun onItemClicked( transmissionType: String )
     {
-        mNewVehicleViewModel.setVehicleTransmission( TransmissionType.getTransmissionTypeFromDescription( transmissionType ) )
+        mVehicleRegisterViewModel.setVehicleTransmission( TransmissionType.getTransmissionTypeFromDescription( transmissionType ) )
         activity?.let { fragmentActivity ->
-            mNewVehicleViewModel.insertVehicles().observe(fragmentActivity, {
+            mVehicleRegisterViewModel.insertVehicles().observe(fragmentActivity, {
                 if( it )
                 {
                     Toast.makeText( context, getString(R.string.success), Toast.LENGTH_LONG ).show()

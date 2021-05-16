@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_generic_list.*
 
 class VehicleFuelFragment : Fragment()
 {
-    private lateinit var mNewVehicleViewModel: NewVehicleViewModel
+    private lateinit var mVehicleRegisterViewModel: VehicleRegisterViewModel
 
     private lateinit var mRecyclerView: RecyclerView
 
@@ -33,7 +33,7 @@ class VehicleFuelFragment : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
-        mNewVehicleViewModel = ViewModelProvider(this).get( NewVehicleViewModel::class.java )
+        mVehicleRegisterViewModel = ViewModelProvider(this).get( VehicleRegisterViewModel::class.java )
         initActionBar()
         setHasOptionsMenu( true )
         initRecyclerView()
@@ -61,12 +61,12 @@ class VehicleFuelFragment : Fragment()
         mRecyclerView.adapter = mAdapter
         progressBar.visibility = View.GONE
         recycler_view.visibility = View.VISIBLE
-        mAdapter.submitList( mNewVehicleViewModel.getFuelList() )
+        mAdapter.submitList( mVehicleRegisterViewModel.getFuelList() )
     }
 
     private fun onItemClicked( fuelType: String )
     {
-        mNewVehicleViewModel.setVehicleFuelType( FuelType.getFuelTypeFromDescription( fuelType ) )
+        mVehicleRegisterViewModel.setVehicleFuelType( FuelType.getFuelTypeFromDescription( fuelType ) )
         findNavController().navigate( R.id.action_VehicleFuelFragment_to_VehicleTransmissionFragment )
     }
 

@@ -17,11 +17,11 @@ import retrofit2.Response
 import java.lang.Exception
 import java.util.*
 
-class NewVehicleViewModel: ViewModel()
+class VehicleRegisterViewModel: ViewModel()
 {
     companion object
     {
-        const val TAG = "NewVehicleViewModel"
+        const val TAG = "VehicleRegisterViewModel"
     }
 
     private var mCompanyList = MutableLiveData<MutableList<String>>()

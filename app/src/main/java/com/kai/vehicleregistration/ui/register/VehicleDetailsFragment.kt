@@ -16,7 +16,7 @@ import java.util.*
 
 class VehicleDetailsFragment : Fragment()
 {
-    private lateinit var mNewVehicleViewModel: NewVehicleViewModel
+    private lateinit var mVehicleRegisterViewModel: VehicleRegisterViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
     {
@@ -27,7 +27,7 @@ class VehicleDetailsFragment : Fragment()
     override fun onViewCreated(view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
-        mNewVehicleViewModel = ViewModelProvider(this).get( NewVehicleViewModel::class.java )
+        mVehicleRegisterViewModel = ViewModelProvider(this).get( VehicleRegisterViewModel::class.java )
         initActionBar()
         setHasOptionsMenu( true )
         loadData()
@@ -36,7 +36,7 @@ class VehicleDetailsFragment : Fragment()
     @SuppressLint("SetTextI18n")
     private fun loadData()
     {
-        val vehicleEntity = mNewVehicleViewModel.getVehicleDetails()
+        val vehicleEntity = mVehicleRegisterViewModel.getVehicleDetails()
         title.text = "${vehicleEntity.mModel.toUpperCase(Locale.ROOT)} ${vehicleEntity.mFuelType}"
         subTitle.text = vehicleEntity.mVehicleNumber.toUpperCase(Locale.ROOT)
         makeSubTitle.text = vehicleEntity.mCompany.toUpperCase(Locale.ROOT)

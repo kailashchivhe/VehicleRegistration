@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_new_vehicle.*
 
 class VehicleRegisterFragment : Fragment()
 {
-    private lateinit var mNewVehicleViewModel: NewVehicleViewModel
+    private lateinit var mVehicleRegisterViewModel: VehicleRegisterViewModel
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View?
     {
@@ -28,7 +28,7 @@ class VehicleRegisterFragment : Fragment()
     override fun onViewCreated( view: View, savedInstanceState: Bundle? )
     {
         super.onViewCreated(view, savedInstanceState)
-        mNewVehicleViewModel = ViewModelProvider(this).get( NewVehicleViewModel::class.java )
+        mVehicleRegisterViewModel = ViewModelProvider(this).get( VehicleRegisterViewModel::class.java )
         initActionBar()
         setHasOptionsMenu( true )
         initRadioButton()
@@ -57,7 +57,7 @@ class VehicleRegisterFragment : Fragment()
     private fun onNextClick()
     {
         next_fab.setOnClickListener {
-            mNewVehicleViewModel.setVehicleNumber( vehicle_no_edit_text.text.toString() )
+            mVehicleRegisterViewModel.setVehicleNumber( vehicle_no_edit_text.text.toString() )
             findNavController().navigate( R.id.action_VehicleRegisterFragment_to_VehicleCompanyFragment )
         }
     }
